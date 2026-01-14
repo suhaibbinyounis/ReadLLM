@@ -1,77 +1,29 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>ReadLLM – Code – Greedy Algorithms</title>
-    <link>https://ReadLLM.com/docs/code/greedy-algorithms/</link>
-    <description>Recent content in Code – Greedy Algorithms on ReadLLM</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Tue, 23 Dec 2025 16:04:48 +0000</lastBuildDate>
-    
-	  <atom:link href="https://ReadLLM.com/docs/code/greedy-algorithms/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
-    <item>
-      <title>Greedy Algorithms – Problems</title>
-      <link>https://ReadLLM.com/docs/code/greedy-algorithms/problems/</link>
-      <pubDate>Tue, 23 Dec 2025 16:04:48 +0000</pubDate>
-      
-      <guid>https://ReadLLM.com/docs/code/greedy-algorithms/problems/</guid>
-      <description>
-        
-        
-        &lt;div class=&#34;hero-section&#34; style=&#34;padding: 2rem 1rem; text-align: center;&#34;&gt;
-  &lt;h1 style=&#34;font-size: 3rem; font-weight: 900; letter-spacing: -0.02em; margin-bottom: 0.5rem;&#34;&gt;GREEDY ALGORITHMS – PROBLEMS.&lt;/h1&gt;
-  &lt;p style=&#34;font-size: 1.25rem; color: #6b7280; max-width: 600px; margin: 0 auto;&#34;&gt;Master the fundamentals. Crack the code.&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ReadLLM – Code – Greedy Algorithms</title><link>https://ReadLLM.com/docs/code/greedy-algorithms/</link><description>Recent content in Code – Greedy Algorithms on ReadLLM</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 23 Dec 2025 16:04:48 +0000</lastBuildDate><atom:link href="https://ReadLLM.com/docs/code/greedy-algorithms/index.xml" rel="self" type="application/rss+xml"/><item><title>Greedy Algorithms – Problems</title><link>https://ReadLLM.com/docs/code/greedy-algorithms/problems/</link><pubDate>Tue, 23 Dec 2025 16:04:48 +0000</pubDate><guid>https://ReadLLM.com/docs/code/greedy-algorithms/problems/</guid><description>
+&lt;div class="hero-section" style="padding: 2rem 1rem; text-align: center;"&gt;
+&lt;h1 style="font-size: 3rem; font-weight: 900; letter-spacing: -0.02em; margin-bottom: 0.5rem;"&gt;GREEDY ALGORITHMS – PROBLEMS.&lt;/h1&gt;
+&lt;p style="font-size: 1.25rem; color: #6b7280; max-width: 600px; margin: 0 auto;"&gt;Master the fundamentals. Crack the code.&lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;Alright, let&amp;rsquo;s dive into the exciting (and sometimes frustrating!) world of problems that greedy algorithms tackle.  Don&amp;rsquo;t worry, we&amp;rsquo;ll explore some common challenges and pitfalls you might encounter when designing and implementing these algorithms.  Understanding these problems will help you build more robust and effective solutions, so let&amp;rsquo;s get started!&lt;/p&gt;
-&lt;div style=&#34;text-align: center; margin-top: 1em;&#34;&gt;
+&lt;p&gt;Alright, let&amp;rsquo;s dive into the exciting (and sometimes frustrating!) world of problems that greedy algorithms tackle. Don&amp;rsquo;t worry, we&amp;rsquo;ll explore some common challenges and pitfalls you might encounter when designing and implementing these algorithms. Understanding these problems will help you build more robust and effective solutions, so let&amp;rsquo;s get started!&lt;/p&gt;
+&lt;div style="text-align: center; margin-top: 1em;"&gt;
 &lt;a
-  href=&#34;index.xml&#34;
-  class=&#34; not-prose hx-inline-flex hx-items-center hx-rounded-full hx-gap-2 hx-px-3 hx-py-1 hx-text-xs hx-text-gray-600 dark:hx-text-gray-400 hx-bg-gray-100 dark:hx-bg-neutral-800 dark:hx-border-neutral-800 hx-border hover:hx-border-gray-400 dark:hover:hx-text-gray-50 dark:hover:hx-border-gray-600 hx-transition-all hx-ease-in hx-duration-200&#34;
-  
-  &gt;
-  &lt;span&gt;RSS Feed&lt;/span&gt;
-&lt;span class=&#34;hx-inline-block hx-align-text-bottom icon&#34;&gt;&lt;svg height=14 xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z&#34;/&gt;&lt;/svg&gt;&lt;/span&gt;
+href="index.xml"
+class=" not-prose hx-inline-flex hx-items-center hx-rounded-full hx-gap-2 hx-px-3 hx-py-1 hx-text-xs hx-text-gray-600 dark:hx-text-gray-400 hx-bg-gray-100 dark:hx-bg-neutral-800 dark:hx-border-neutral-800 hx-border hover:hx-border-gray-400 dark:hover:hx-text-gray-50 dark:hover:hx-border-gray-600 hx-transition-all hx-ease-in hx-duration-200"
+&gt;
+&lt;span&gt;RSS Feed&lt;/span&gt;
+&lt;span class="hx-inline-block hx-align-text-bottom icon"&gt;&lt;svg height=14 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z"/&gt;&lt;/svg&gt;&lt;/span&gt;
 &lt;/a&gt;
-
+&lt;/div&gt;</description></item><item><title>Greedy Algorithms – Theory</title><link>https://ReadLLM.com/docs/code/greedy-algorithms/theory/</link><pubDate>Tue, 23 Dec 2025 16:04:48 +0000</pubDate><guid>https://ReadLLM.com/docs/code/greedy-algorithms/theory/</guid><description>
+&lt;div class="hero-section" style="padding: 2rem 1rem; text-align: center;"&gt;
+&lt;h1 style="font-size: 3rem; font-weight: 900; letter-spacing: -0.02em; margin-bottom: 0.5rem;"&gt;GREEDY ALGORITHMS – THEORY.&lt;/h1&gt;
+&lt;p style="font-size: 1.25rem; color: #6b7280; max-width: 600px; margin: 0 auto;"&gt;Master the fundamentals. Crack the code.&lt;/p&gt;
 &lt;/div&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Greedy Algorithms – Theory</title>
-      <link>https://ReadLLM.com/docs/code/greedy-algorithms/theory/</link>
-      <pubDate>Tue, 23 Dec 2025 16:04:48 +0000</pubDate>
-      
-      <guid>https://ReadLLM.com/docs/code/greedy-algorithms/theory/</guid>
-      <description>
-        
-        
-        &lt;div class=&#34;hero-section&#34; style=&#34;padding: 2rem 1rem; text-align: center;&#34;&gt;
-  &lt;h1 style=&#34;font-size: 3rem; font-weight: 900; letter-spacing: -0.02em; margin-bottom: 0.5rem;&#34;&gt;GREEDY ALGORITHMS – THEORY.&lt;/h1&gt;
-  &lt;p style=&#34;font-size: 1.25rem; color: #6b7280; max-width: 600px; margin: 0 auto;&#34;&gt;Master the fundamentals. Crack the code.&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;Alright everyone, let&amp;rsquo;s dive into the theory behind greedy algorithms!  Don&amp;rsquo;t worry, it&amp;rsquo;s not as scary as it sounds.  Think of greedy algorithms as the &amp;ldquo;grab-what-you-can-now&amp;rdquo; approach to problem-solving.  We&amp;rsquo;ll explore the core idea of making locally optimal choices at each step, hoping to find a globally optimal solution.  It&amp;rsquo;s a simple yet powerful concept that often leads to elegant and efficient solutions – let&amp;rsquo;s see how it works!&lt;/p&gt;
-&lt;div style=&#34;text-align: center; margin-top: 1em;&#34;&gt;
+&lt;p&gt;Alright everyone, let&amp;rsquo;s dive into the theory behind greedy algorithms! Don&amp;rsquo;t worry, it&amp;rsquo;s not as scary as it sounds. Think of greedy algorithms as the &amp;ldquo;grab-what-you-can-now&amp;rdquo; approach to problem-solving. We&amp;rsquo;ll explore the core idea of making locally optimal choices at each step, hoping to find a globally optimal solution. It&amp;rsquo;s a simple yet powerful concept that often leads to elegant and efficient solutions – let&amp;rsquo;s see how it works!&lt;/p&gt;
+&lt;div style="text-align: center; margin-top: 1em;"&gt;
 &lt;a
-  href=&#34;index.xml&#34;
-  class=&#34; not-prose hx-inline-flex hx-items-center hx-rounded-full hx-gap-2 hx-px-3 hx-py-1 hx-text-xs hx-text-gray-600 dark:hx-text-gray-400 hx-bg-gray-100 dark:hx-bg-neutral-800 dark:hx-border-neutral-800 hx-border hover:hx-border-gray-400 dark:hover:hx-text-gray-50 dark:hover:hx-border-gray-600 hx-transition-all hx-ease-in hx-duration-200&#34;
-  
-  &gt;
-  &lt;span&gt;RSS Feed&lt;/span&gt;
-&lt;span class=&#34;hx-inline-block hx-align-text-bottom icon&#34;&gt;&lt;svg height=14 xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;2&#34; stroke=&#34;currentColor&#34; aria-hidden=&#34;true&#34;&gt;&lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z&#34;/&gt;&lt;/svg&gt;&lt;/span&gt;
+href="index.xml"
+class=" not-prose hx-inline-flex hx-items-center hx-rounded-full hx-gap-2 hx-px-3 hx-py-1 hx-text-xs hx-text-gray-600 dark:hx-text-gray-400 hx-bg-gray-100 dark:hx-bg-neutral-800 dark:hx-border-neutral-800 hx-border hover:hx-border-gray-400 dark:hover:hx-text-gray-50 dark:hover:hx-border-gray-600 hx-transition-all hx-ease-in hx-duration-200"
+&gt;
+&lt;span&gt;RSS Feed&lt;/span&gt;
+&lt;span class="hx-inline-block hx-align-text-bottom icon"&gt;&lt;svg height=14 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z"/&gt;&lt;/svg&gt;&lt;/span&gt;
 &lt;/a&gt;
-
-&lt;/div&gt;
-
-      </description>
-    </item>
-    
-  </channel>
-</rss>
+&lt;/div&gt;</description></item></channel></rss>
