@@ -1,0 +1,19 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ReadLLM – Categories</title>
+    <link>https://ReadLLM.com/categories/</link>
+    <description>Recent content in Categories on ReadLLM</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 11 Jan 2026 04:27:34 +0000</lastBuildDate>
+    
+	  <atom:link href="https://ReadLLM.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+  </channel>
+</rss>

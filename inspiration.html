@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic Page Needs -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite Scroll of Inspiration | Timeless Quotes & Art</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Immerse yourself in an endless scroll of inspiration. Discover timeless wisdom and classic art in a beautiful, minimalist experience. A new quote and masterpiece with every scroll.">
+    <!-- Note: Meta keywords are less impactful for modern SEO, but included as requested. -->
+    <meta name="keywords" content="inspirational quotes, motivational quotes, famous quotes, life quotes, wisdom, art, classic art, museum art, infinite scroll, minimalist design, typography, beautiful webpage, inspiration, motivation, daily inspiration, famous artists, thinkers, philosophers">
+    <meta name="author" content="Suhaib">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://notes.suhaib.in/inspiration.html">
+
+    <!-- Open Graph Meta Tags (for social sharing - Facebook, LinkedIn, etc.) -->
+    <meta property="og:title" content="Infinite Scroll of Inspiration | Timeless Quotes & Art">
+    <meta property="og:description" content="Immerse yourself in an endless scroll of wisdom and beauty. A new quote and masterpiece with every scroll.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://notes.suhaib.in/inspiration.html">
+    <meta property="og:image" content="https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg">
+    <meta property="og:image:alt" content="A beautiful piece of classic art serving as a background for an inspirational quote.">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Infinite Scroll of Inspiration | Timeless Quotes & Art">
+    <meta name="twitter:description" content="Immerse yourself in an endless scroll of wisdom and beauty. A new quote and masterpiece with every scroll.">
+    <meta name="twitter:image" content="https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg">
+
+    <!-- Stylesheets and Fonts -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Mono:wght@300;700&family=Cormorant+Garamond:wght@700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F5JV0Q6QS8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-F5JV0Q6QS8');
+    </script>
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "rdtln2duid");
+    </script>
+
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1a1a1a; }
+        ::-webkit-scrollbar-thumb { background-color: #4f4f4f; border-radius: 10px; border: 2px solid #1a1a1a; }
+
+        body {
+            background-color: #101010;
+            color: #e0e0e0;
+            font-family: 'Montserrat', sans-serif;
+            overscroll-behavior-y: contain;
+        }
+        
+        .quote-section {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem 5%;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax effect */
+            box-sizing: border-box;
+            transition: opacity 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .quote-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .quote-section::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background: linear-gradient(45deg, rgba(10, 5, 0, 0.85), rgba(0, 0, 0, 0.7));
+            z-index: 1;
+        }
+
+        .quote-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* --- TYPOGRAPHY THEMES --- */
+        .font-playfair { font-family: 'Playfair Display', serif; text-shadow: 1px 1px 15px rgba(0,0,0,0.5); }
+        .font-roboto-mono { font-family: 'Roboto Mono', monospace; text-transform: uppercase; letter-spacing: 1px; }
+        .font-garamond { font-family: 'Cormorant Garamond', serif; font-weight: 700; text-shadow: 1px 1px 15px rgba(0,0,0,0.5); }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; font-weight: 300; }
+        
+        .responsive-font-xl {
+            font-size: clamp(2.5rem, 8vw, 7rem);
+        }
+        .responsive-font-lg {
+            font-size: clamp(2rem, 6vw, 5.5rem);
+        }
+        .responsive-font-md {
+            font-size: clamp(1.75rem, 5vw, 4rem);
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <div id="initial-loader" class="fixed inset-0 flex flex-col items-center justify-center bg-black z-50 transition-opacity duration-500">
+        <svg class="animate-spin h-12 w-12 text-amber-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        <p class="mt-4 text-lg font-garamond tracking-widest">Curating from the Archives...</p>
+    </div>
+
+    <main id="content-container">
+        <!-- Quote sections are dynamically injected here -->
+    </main>
+    
+    <div id="sentinel" class="h-40"></div>
+    
+    <div id="scroll-loader" class="hidden text-center p-8 text-gray-400">
+        <p>Seeking more inspiration...</p>
+    </div>
+    
+    <div id="scroll-indicator" class="fixed bottom-10 left-1/2 -translate-x-1/2 z-40 hidden animate-bounce transition-opacity duration-500 text-center">
+        <svg class="w-10 h-10 text-white opacity-75 mx-auto" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewBox="0 0 24 24" stroke="currentColor">
+            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+        <p class="text-white text-sm mt-1 opacity-75">Scroll</p>
+    </div>
+
+    <a href="https://notes.suhaib.in" target="_blank" rel="noopener noreferrer" class="fixed bottom-4 right-4 z-40 text-white text-sm font-montserrat opacity-50 hover:opacity-100 transition-opacity duration-300">
+        Notes
+    </a>
+
+
+    <script>
+        const contentContainer = document.getElementById('content-container');
+        const initialLoader = document.getElementById('initial-loader');
+        const sentinel = document.getElementById('sentinel');
+        const scrollLoader = document.getElementById('scroll-loader');
+        const scrollIndicator = document.getElementById('scroll-indicator');
+
+        // --- CONFIGURATION ---
+        const INITIAL_QUOTES = 3;
+        const SCROLL_LOAD_COUNT = 3;
+        const ART_DEPARTMENTS = [21, 9, 11, 15, 10];
+        const FALLBACK_IMAGE_URL = 'https://images.metmuseum.org/CRDImages/ep/original/DT1567.jpg';
+        let isLoading = false;
+        let isFetchingArtList = false;
+        
+        let artIDDeck = [];
+        let usedArtIDs = new Set();
+        let recentlyUsedQuotes = new Set();
+
+        const styleThemes = [
+            { fontClass: 'font-playfair italic', sizeClass: 'responsive-font-xl', align: 'text-left' },
+            { fontClass: 'font-roboto-mono', sizeClass: 'responsive-font-md', align: 'text-center' },
+            { fontClass: 'font-garamond', sizeClass: 'responsive-font-xl', align: 'text-right' },
+            { fontClass: 'font-montserrat', sizeClass: 'responsive-font-lg', align: 'text-center' },
+        ];
+        
+        // --- DATA HANDLING ---
+        async function getNewQuote() {
+            let attempts = 0;
+            while (attempts < 5) {
+                try {
+                    const response = await fetch("https://dummyjson.com/quotes/random");
+                    if (!response.ok) throw new Error('dummyjson request failed');
+                    const quoteData = await response.json();
+                    
+                    if (!recentlyUsedQuotes.has(quoteData.quote)) {
+                        recentlyUsedQuotes.add(quoteData.quote);
+                        if (recentlyUsedQuotes.size > 50) {
+                            const oldestQuote = recentlyUsedQuotes.values().next().value;
+                            recentlyUsedQuotes.delete(oldestQuote);
+                        }
+                        return { text: quoteData.quote, author: quoteData.author };
+                    }
+                } catch (error) {
+                    console.error("Quote fetch error:", error);
+                    return { text: "The journey of a thousand miles begins with a single step.", author: "Lao Tzu" };
+                }
+                attempts++;
+            }
+            return { text: "Simplicity is the ultimate sophistication.", author: "Leonardo da Vinci" };
+        }
+
+        async function fetchMasterArtList() {
+             if (isFetchingArtList) return;
+             isFetchingArtList = true;
+             const randomDept = ART_DEPARTMENTS[Math.floor(Math.random() * ART_DEPARTMENTS.length)];
+             const url = `https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=${randomDept}`;
+             try {
+                const response = await fetch(url);
+                if(!response.ok) throw new Error('Failed to fetch art list');
+                const data = await response.json();
+                const newIDs = (data.objectIDs || []).filter(id => !usedArtIDs.has(id));
+                
+                const shuffledNewIDs = newIDs.sort(() => Math.random() - 0.5);
+                for (const id of shuffledNewIDs) {
+                    artIDDeck.push(id);
+                }
+
+                console.log(`Fetched ${newIDs.length} new art IDs. Deck size: ${artIDDeck.length}`);
+             } catch (error) {
+                console.error("Met Museum List API Error:", error);
+             } finally {
+                isFetchingArtList = false;
+             }
+        }
+
+        async function getArt() {
+            if (artIDDeck.length < 10 && !isFetchingArtList) {
+                fetchMasterArtList();
+            }
+
+            let attempts = 0;
+            while (attempts < 15 && artIDDeck.length > 0) {
+                const objectID = artIDDeck.pop();
+                if (!objectID || usedArtIDs.has(objectID)) {
+                    continue; 
+                }
+                
+                try {
+                    const response = await fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`);
+                    if (response.ok) {
+                        const artObject = await response.json();
+                        if (artObject.isPublicDomain && artObject.primaryImageSmall) {
+                            usedArtIDs.add(objectID);
+                            return artObject.primaryImageSmall;
+                        }
+                    }
+                } catch (e) {
+                    console.error(`Error fetching art object ${objectID}:`, e);
+                }
+                attempts++;
+            }
+            console.warn("Could not find a valid art piece, using fallback.");
+            return FALLBACK_IMAGE_URL;
+        }
+
+        function createQuoteSection(quote, imageUrl) {
+            const section = document.createElement('section');
+            const theme = styleThemes[Math.floor(Math.random() * styleThemes.length)];
+            section.className = 'quote-section';
+            section.style.backgroundImage = `url(${imageUrl})`;
+            section.innerHTML = `
+                <div class="quote-content ${theme.align}">
+                    <h1 class="${theme.fontClass} ${theme.sizeClass} !leading-tight tracking-wide">
+                       “${quote.text}”
+                    </h1>
+                    <p class="mt-8 text-xl md:text-2xl font-light tracking-wide opacity-80">
+                        — ${quote.author || 'Unknown'}
+                    </p>
+                </div>
+            `;
+            return section;
+        }
+
+        async function loadMoreContent(count) {
+            if (isLoading) return;
+            isLoading = true;
+            scrollLoader.classList.remove('hidden');
+
+            try {
+                const quotePromises = Array(count).fill(0).map(() => getNewQuote());
+                const artPromises = Array(count).fill(0).map(() => getArt());
+                
+                const quotes = await Promise.all(quotePromises);
+                const imageUrls = await Promise.all(artPromises);
+
+                quotes.forEach((quote, i) => {
+                    if (quote) {
+                        const section = createQuoteSection(quote, imageUrls[i] || FALLBACK_IMAGE_URL);
+                        contentContainer.appendChild(section);
+                        setTimeout(() => section.classList.add('visible'), 100);
+                    }
+                });
+            } catch (error) {
+                console.error("Error loading more content:", error);
+            } finally {
+                isLoading = false;
+                scrollLoader.classList.add('hidden');
+            }
+        }
+        
+        function setupScrollObserver() {
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting && !isLoading) {
+                    loadMoreContent(SCROLL_LOAD_COUNT);
+                }
+            }, { rootMargin: '0px 0px 400px 0px' });
+            observer.observe(sentinel);
+        }
+
+        function setupScrollIndicatorListener() {
+            const handleFirstScroll = () => {
+                if (scrollIndicator) {
+                    scrollIndicator.style.opacity = '0';
+                    setTimeout(() => scrollIndicator.remove(), 500); // Remove after fade out
+                }
+                window.removeEventListener('scroll', handleFirstScroll);
+            };
+            window.addEventListener('scroll', handleFirstScroll);
+        }
+
+        async function initialize() {
+            await fetchMasterArtList();
+            await loadMoreContent(INITIAL_QUOTES);
+            initialLoader.style.opacity = '0';
+            setTimeout(() => {
+                initialLoader.style.display = 'none';
+                scrollIndicator.classList.remove('hidden');
+                setupScrollObserver();
+                setupScrollIndicatorListener();
+            }, 500);
+        }
+
+        window.addEventListener('load', initialize);
+    </script>
+</body>
+</html>

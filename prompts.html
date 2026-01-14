@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Master Prompt Engineering: The Prompt Index & AI Techniques</title>
+  <meta name="description" content="New to AI? Learn to write expert prompts with The Prompt Index. A free, comprehensive guide with 100+ copy-paste examples and advanced techniques like Few-Shot Learning and Prompt Chaining.">
+  <meta name="keywords" content="prompt engineering, ai prompts, learn prompting, prompt examples, advanced prompt techniques, chatgpt prompts, midjourney prompts, how to write prompts, AI for beginners, prompt guide, few-shot learning, prompt chaining, zero-shot prompting">
+  <meta name="author" content="Suhaib">
+  <link rel="canonical" href="https://notes.suhaib.in/prompts.html">
+
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://notes.suhaib.in/prompts.html">
+  <meta property="og:title" content="Master Prompt Engineering: The Prompt Index & AI Techniques">
+  <meta property="og:description" content="A free, comprehensive guide with 100+ copy-paste examples and advanced techniques to turn you into a prompt engineering expert.">
+  <meta property="og:image" content="https://notes.suhaib.in/prompt-preview.png">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://notes.suhaib.in/prompts.html">
+  <meta property="twitter:title" content="Master Prompt Engineering: The Prompt Index & AI Techniques">
+  <meta property="twitter:description" content="A free, comprehensive guide with 100+ copy-paste examples and advanced techniques to turn you into a prompt engineering expert.">
+  <meta property="twitter:image" content="https://notes.suhaib.in/prompt-preview.png">
+  <meta name="google-adsense-account" content="ca-pub-5065566634741089">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5065566634741089" crossorigin="anonymous"></script>
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F5JV0Q6QS8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-F5JV0Q6QS8');
+  </script>
+
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "rdtln2duid");
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script type="text/tailwindcss">
+    module.exports = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+      plugins: [
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/typography'),
+      ],
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.20.6/babel.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+    }
+    ::selection {
+      background-color: #fff;
+      color: #000;
+    }
+    .prose-invert code::before, .prose-invert code::after {
+      content: none !important;
+    }
+    pre code {
+      white-space: pre-wrap !important;
+      word-break: break-word !important;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{
+      "@type": "Question",
+      "name": "What is prompt engineering?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Prompt engineering is the art and science of designing effective inputs (prompts) to get desired outputs from AI models like ChatGPT. This guide provides advanced techniques and examples to help you master it."
+      }
+    },{
+      "@type": "Question",
+      "name": "How can I write better AI prompts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can write better prompts by using techniques like the Persona Pattern, Few-Shot Learning, and Chain-of-Thought. The Prompt Index offers detailed explanations and copy-paste examples for these and many other advanced methods."
+      }
+    },{
+      "@type": "Question",
+      "name": "Is this guide beginner-friendly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! The Prompt Index is designed for everyone, from absolute beginners to experienced developers. We provide clear explanations and practical examples to help you learn prompt engineering from the ground up."
+      }
+    }]
+  }
+  </script>
+
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+const prompts = [
+      // Creative Writing
+      {
+        id: 1,
+        title: "World-Building Snippet",
+        text: "Generate a wiki-style entry for 'Aethelburg', a city submerged for a millennium after a magical cataclysm. Detail its bioluminescent ecosystem, warring factions of merfolk, and the ancient technology at its core.",
+        category: "Creative Writing",
+        tags: ["World-Building", "Sci-Fi", "Fantasy"],
+      },
+      {
+        id: 2,
+        title: "Dialogue-Only Mystery",
+        text: "Write a 300-word, dialogue-only scene between a detective and an informant. Reveal a hidden clue and imply a third party is manipulating them. End on a cliffhanger. No action tags.",
+        category: "Creative Writing",
+        tags: ["Dialogue", "Mystery", "Constraint"],
+      },
+      {
+        id: 13,
+        title: "Flash Fiction with a Twist",
+        text: "Write a 500-word story about a lone astronaut on a long-haul mission who discovers the 'stars' are not what they seem. Build suspense and end with a shocking revelation.",
+        category: "Creative Writing",
+        tags: ["Sci-Fi", "Flash Fiction", "Twist Ending"],
+      },
+      {
+        id: 14,
+        title: "Create a Myth",
+        text: "Invent a creation myth for a fantasy world. The myth should explain the origin of the sun and moon and involve two warring celestial deities. The style should be epic and poetic.",
+        category: "Creative Writing",
+        tags: ["Mythology", "World-Building", "Storytelling"],
+      },
+
+      // Coding & Development
+      {
+        id: 3,
+        title: "React Kanban Component",
+        text: "Create a simple React component for a Kanban board using only hooks. Props: an array of tasks. Render three columns ('To Do', 'In Progress', 'Done') and enable drag-and-drop task movement.",
+        category: "Coding",
+        tags: ["React", "JavaScript", "Frontend"],
+      },
+      {
+        id: 4,
+        title: "Python Rate-Limited Scraper",
+        text: "Write a Python script using `requests` and `BeautifulSoup` to scrape news headlines. Implement rate-limiting (1 request/2 secs) and robust error handling for HTTP status codes.",
+        category: "Coding",
+        tags: ["Python", "Web Scraping", "Best Practices"],
+      },
+      {
+        id: 15,
+        title: "SQL Database Schema",
+        text: "Design a SQL database schema for a simple e-commerce site. Include tables for Users, Products, Orders, and Order_Items. Define primary keys, foreign keys, and appropriate data types for each column.",
+        category: "Coding",
+        tags: ["SQL", "Database", "Backend", "Schema Design"],
+      },
+      {
+        id: 16,
+        title: "Dockerize a Node.js App",
+        text: "Write a complete Dockerfile for a basic Node.js Express application. The Dockerfile should use a multi-stage build to create a small, optimized production image. Add comments explaining each stage.",
+        category: "Coding",
+        tags: ["Docker", "Node.js", "DevOps", "Best Practices"],
+      },
+
+      // Data Science
+      {
+        id: 5,
+        title: "Pandas Churn Analysis",
+        text: "Given a pandas DataFrame `df` ('CustomerID', 'TenureMonths', 'MonthlyCharges', 'Churn'), write a Python script for an EDA to find the top 3 drivers of customer churn. Visualize results.",
+        category: "Data Science",
+        tags: ["Python", "Pandas", "EDA"],
+      },
+      {
+        id: 17,
+        title: "Time Series Forecasting",
+        text: "You are a data scientist with a dataset of daily sales data for the last 3 years. Write a Python script using `statsmodels` or `Prophet` to build a time series forecasting model. Explain how you would evaluate the model's performance.",
+        category: "Data Science",
+        tags: ["Python", "Time Series", "Forecasting", "Statistics"],
+      },
+
+      // Image Generation
+      {
+        id: 6,
+        title: "Photorealistic Cyberpunk Scene",
+        text: "photorealistic cinematic shot, rain-slicked cyberpunk street, midnight, glowing neon signs in Japanese, reflections in puddles, lone figure in a trench coat, volumetric lighting, Arri Alexa 35mm anamorphic, 8k --ar 16:9 --style raw",
+        category: "Image Generation",
+        tags: ["Midjourney", "Photorealism", "Cinematic"],
+      },
+       {
+        id: 7,
+        title: "Steampunk Animal Portrait",
+        text: "symmetrical studio portrait, anthropomorphic red panda as a steampunk aviator, intricate brass goggles, leather helmet, detailed cogs on jacket, Rembrandt-style oil painting, rich textures --ar 4:5",
+        category: "Image Generation",
+        tags: ["DALL-E", "Steampunk", "Artistic"],
+      },
+      {
+        id: 18,
+        title: "Minimalist Vector Logo",
+        text: "Minimalist vector logo for a tech startup named 'Quantum Leap'. The logo should incorporate a stylized atom or qubit symbol. Use a clean, modern font. monochrome, on white background --style raw",
+        category: "Image Generation",
+        tags: ["Logo Design", "Vector", "Minimalist", "Graphic Design"],
+      },
+      {
+        id: 19,
+        title: "Abstract Concept Art",
+        text: "Abstract art representing the concept of 'serendipity'. Use a vibrant, chaotic explosion of colors, interwoven with delicate, golden threads that connect seemingly random points. Ethereal, dreamlike, high resolution.",
+        category: "Image Generation",
+        tags: ["Abstract", "Concept Art", "Artistic"],
+      },
+
+      // Business & Marketing
+      {
+        id: 8,
+        title: "Develop a Negative Persona",
+        text: "Develop a 'negative user persona' for a productivity app. This is the user we are *not* targeting. Name them 'Distracted Debbie' and detail their motivations and pain points to help us avoid building features for them.",
+        category: "Business",
+        tags: ["Marketing", "Strategy", "UX"],
+      },
+      {
+        id: 9,
+        title: "A/B Test Email Subjects",
+        text: "Generate 5 A/B test variations for an email subject line promoting a 25% off flash sale on a sustainable gardening course. Test urgency, curiosity, value, and personalization. Provide a rationale for each.",
+        category: "Business",
+        tags: ["Email Marketing", "A/B Testing", "Copywriting"],
+      },
+      {
+        id: 20,
+        title: "Competitive Analysis Framework",
+        text: "You are a business strategist. Create a framework in Markdown for analyzing a new competitor in the SaaS market. The framework should include sections for Product Analysis, Pricing Strategy, Marketing & Sales Channels, and SWOT analysis.",
+        category: "Business",
+        tags: ["Strategy", "Analysis", "Framework", "SaaS"],
+      },
+      {
+        id: 21,
+        title: "Social Media Content Calendar",
+        text: "Generate a 1-week social media content calendar for a new brand of eco-friendly sneakers. The goal is to build brand awareness. Include post ideas for Instagram, Twitter (X), and TikTok, with appropriate hashtags.",
+        category: "Business",
+        tags: ["Social Media", "Marketing", "Content Strategy"],
+      },
+
+      // Technical Writing
+      {
+        id: 10,
+        title: "Document a REST API Endpoint",
+        text: "Write Markdown documentation for a `POST /api/v1/users` endpoint. Include request/response structure, headers, and examples for success (201) and failure (400) status codes.",
+        category: "Technical Writing",
+        tags: ["API", "Documentation", "Markdown"],
+      },
+      {
+        id: 22,
+        title: "Beginner's Guide Tutorial",
+        text: "Write the introduction and first section of a beginner's guide titled 'Getting Started with Git'. Explain what Git is in simple terms, using an analogy. The first section should cover installing Git on Windows and macOS.",
+        category: "Technical Writing",
+        tags: ["Tutorial", "Git", "Documentation", "Beginner"],
+      },
+
+      // Roleplay & Simulation
+      {
+        id: 12,
+        title: "Simulate a High-Stakes Negotiation",
+        text: "You are an expert hostage negotiator. I am the lead bank robber; I am unpredictable and nervous. I have 3 hostages. Start the conversation. Your goal: build rapport, de-escalate, and get my primary demand.",
+        category: "Roleplay",
+        tags: ["Simulation", "Negotiation", "Psychology"],
+      },
+      {
+        id: 23,
+        title: "Job Interview Practice",
+        text: "You are a hiring manager at Google interviewing me for a Senior Software Engineer role. Ask me three challenging behavioral questions, one by one. After each of my answers, provide constructive feedback.",
+        category: "Roleplay",
+        tags: ["Interview", "Career", "Simulation", "Self-Improvement"],
+      },
+      
+      // Academic & Education
+      {
+        id: 24,
+        title: "Summarize and Critique a Paper",
+        text: "Read the provided academic paper abstract. First, summarize its key research question, methodology, and findings in three bullet points. Second, identify three potential limitations or unanswered questions for future research.",
+        category: "Academic",
+        tags: ["Research", "Summarization", "Critical Thinking"],
+      },
+      {
+        id: 25,
+        title: "Explain a Complex Topic Simply",
+        text: "Explain the concept of 'General Relativity' to a 12-year-old. Use the Feynman Technique. Use a simple analogy involving a bowling ball and a trampoline. Avoid jargon.",
+        category: "Education",
+        tags: ["Explain Like I'm 5", "Science", "Feynman Technique", "Physics"],
+      },
+
+      // Self-Improvement
+      {
+        id: 26,
+        title: "Design a Learning Plan",
+        text: "I want to learn 'Data Structures and Algorithms'. Create a structured 4-week learning plan. Break down topics week-by-week (e.g., Week 1: Arrays, Linked Lists. Week 2: Stacks, Queues). Suggest a small coding challenge for each topic.",
+        category: "Self-Improvement",
+        tags: ["Learning", "Productivity", "Computer Science"],
+      },
+      {
+        id: 27,
+        title: "Goal-Setting with SMART",
+        text: "I want to improve my physical fitness. Help me refine this vague goal using the SMART (Specific, Measurable, Achievable, Relevant, Time-bound) framework. Ask me questions to clarify each part of the SMART criteria.",
+        category: "Self-Improvement",
+        tags: ["Productivity", "Goal-Setting", "Fitness", "Framework"],
+      }
+    ];
+const techniques = [
+      {
+        title: "The Persona Pattern",
+        description: "Assigning the AI a role is the fastest way to control its tone, vocabulary, and expertise. It primes the model to access the most relevant information for that role.",
+        concept: "This technique leverages the vast amount of text data the AI has been trained on. By specifying a persona (e.g., 'a physicist'), you focus the AI on the patterns and knowledge associated with that field, leading to more authentic and knowledgeable responses.",
+        examples: [
+          {
+            genre: "Business Strategy",
+            prompt: "You are a Chief Financial Officer. Review this investment proposal and provide a risk analysis. Focus on cash flow projections and market volatility. Be skeptical.",
+            explanation: "Specifies a role (CFO), a task (risk analysis), and a disposition (skeptical) for a focused, professional output."
+          },
+          {
+            genre: "Creative Writing",
+            prompt: "You are a world-weary, hardboiled detective in 1940s Los Angeles. Describe the city at dusk from your office window.",
+            explanation: "Creates a strong voice and style by defining a character's personality and setting."
+          },
+          {
+            genre: "Technical Support",
+            prompt: "You are a friendly and patient IT support specialist walking a non-technical user through a password reset. Use simple, clear language and numbered steps.",
+            explanation: "Controls the tone and complexity of the language to be appropriate for the target audience."
+          }
+        ]
+      },
+      {
+        title: "Few-Shot (In-Context) Learning",
+        description: "Show, don't just tell. By providing a few examples (shots) of the desired input-output format directly in the prompt, you give the AI a clear pattern to follow for your specific task.",
+        concept: "Large Language Models are powerful pattern matchers. 'Few-shot' prompting leverages this by providing a small, temporary set of examples in the prompt itself. The model learns the pattern from your examples and applies it to the new input you provide.",
+        examples: [
+          {
+            genre: "Data Extraction",
+            prompt: "Extract the name and price from the following product descriptions:\n\nText: 'The new Quantum XT keyboard is on sale for $129.99!' -> Name: Quantum XT, Price: $129.99\nText: 'For only $49, get the classic ErgoMouse.' -> Name: ErgoMouse, Price: $49\n\nText: 'The UltraWide 4K monitor is now available at a price of $799.' ->",
+            explanation: "Provides a clear format for the AI to replicate, making data extraction reliable without complex instructions."
+          },
+          {
+            genre: "Style Transfer",
+            prompt: "Rewrite the following sentence in a more professional tone.\n\nSentence: 'Hey, we gotta fix the bug ASAP.' -> Rewrite: 'We need to address the critical bug with immediate priority.'\nSentence: 'The new feature is kinda cool, I guess.' -> Rewrite: 'The new feature offers compelling value to our users.'\n\nSentence: 'Can you get me the report by tomorrow?' ->",
+            explanation: "Teaches the AI the specific style transformation you're looking for, from informal to professional."
+          }
+        ]
+      },
+      {
+        title: "Chain-of-Thought (CoT) & Self-Critique",
+        description: "Combine instructing the AI to 'think step-by-step' with a follow-up command to critique and refine its own output. This powerful loop drastically improves the quality of complex tasks.",
+        concept: "CoT forces a logical workflow, reducing errors. The self-critique phase then allows the model to apply its understanding to its own output, catching flaws a single-pass generation might miss.",
+        examples: [
+          {
+            genre: "Coding",
+            prompt: "Write a Python function to check if a string is a palindrome. First, explain your logic step-by-step. Then, review your code for edge cases (e.g., empty strings, case sensitivity) and provide a revised, more robust version.",
+            explanation: "This forces the model to produce not just code, but *tested* and *considered* code."
+          },
+          {
+            genre: "Business",
+            prompt: "Draft a press release for a new product launch. After the draft, act as a skeptical journalist and identify 3 potential weaknesses or confusing statements in the text. Finally, rewrite the press release to address these criticisms.",
+            explanation: "Creates a robust, audience-aware final product by simulating a real-world feedback loop."
+          },
+          {
+            genre: "Academic Research",
+            prompt: "Formulate a research hypothesis about the impact of remote work on employee productivity. First, outline your reasoning. Then, critique the hypothesis for testability and clarity, and refine it.",
+            explanation: "Applies critical thinking to its own output, leading to stronger, more defensible academic arguments."
+          }
+        ]
+      },
+      {
+        title: "Structured Output (JSON, Markdown)",
+        description: "Force the AI to return data in a predictable, machine-readable format. This is essential for any workflow where the AI's output is used as input for another program.",
+        concept: "By providing a clear schema or format in your prompt, you constrain the AI's output to fit that structure. The model is excellent at pattern-matching, so it will follow your lead, making automation and data extraction reliable.",
+        examples: [
+          {
+            genre: "Data Science",
+            prompt: "Analyze the following customer feedback. Return a JSON object with two keys: 'sentiment' (string: 'Positive', 'Negative', 'Neutral') and 'key_topics' (an array of strings). \n\nFeedback: 'The app is great but the battery drain is a huge issue.'",
+            explanation: "Perfect for API integrations. The JSON output can be directly parsed and used in an application without messy text processing."
+          },
+          {
+            genre: "Content Creation",
+            prompt: "Generate a list of 5 blog post ideas about sustainable travel. Format the output as a Markdown table with two columns: 'Title' and 'Brief Description'.",
+            explanation: "Ensures the output is immediately ready to be pasted into a document or CMS with the correct formatting."
+          },
+          {
+            genre: "Project Management",
+            prompt: "Create a list of tasks for launching a new website. Format the output as a YAML list where each item has 'task', 'owner', and 'due_date' attributes.",
+            explanation: "Ideal for generating configuration files or structured data for project management tools."
+          }
+        ]
+      },
+      {
+        title: "Prompt Chaining (Pipelining)",
+        description: "Break down a complex task into a series of simpler prompts. The output of one prompt becomes the input for the next, creating a 'pipeline' that produces a high-quality, composite result.",
+        concept: "An LLM performs better on smaller, well-defined tasks than on large, complex ones. Chaining allows you to guide the AI through a workflow, ensuring quality at each step and building towards a sophisticated final output that a single prompt could not achieve.",
+        examples: [
+          {
+            genre: "Marketing Campaign",
+            prompt: "Prompt 1: 'Generate 10 potential taglines for a new brand of eco-friendly coffee.'\nPrompt 2 (using a chosen tagline): 'You are a marketing strategist. Take the tagline \"Sustainably Sourced, Divinely Brewed\" and generate three core marketing messages based on it.'\nPrompt 3: 'Take the marketing message \"Enjoy world-class coffee that protects the planet\" and write a 30-second video ad script.'",
+            explanation: "Each step refines and builds upon the last, moving from raw ideas to a fully-fledged creative asset."
+          },
+          {
+            genre: "Coding",
+            prompt: "Prompt 1: 'Describe the high-level architecture for a simple blog application API, including the main resources (Users, Posts, Comments).'\nPrompt 2: 'Take the 'Posts' resource from the architecture above and define the specific REST API endpoints (e.g., GET /posts, POST /posts) and the JSON structure for each.'\nPrompt 3: 'Write the Python Flask code for the `GET /posts/{id}` endpoint defined above.'",
+            explanation: "Breaks down software design from high-level architecture to specific implementation, ensuring consistency."
+          }
+        ]
+      },
+      {
+        title: "Controlled Tone & Style Dials",
+        description: "Fine-tune the output by explicitly defining abstract qualities. Go beyond persona by dictating the tone, complexity, and even the stylistic influences you want to see in the response.",
+        concept: "This technique involves using a vocabulary of 'dials' to guide the AI's style. By specifying characteristics like 'formality: 8/10' or 'writing style: inspired by Malcolm Gladwell,' you give the model more nuanced targets to aim for than a simple persona.",
+        examples: [
+          {
+            genre: "Corporate Communications",
+            prompt: "Write an email to all staff about a change in company policy. Use the following style guides:\n- Formality: 8/10 (Professional but not overly stiff)\n- Optimism: 9/10 (Frame the change positively)\n- Clarity: 10/10 (Use simple, unambiguous language)",
+            explanation: "Provides clear, measurable dials for the AI to balance, resulting in a well-crafted message."
+          },
+          {
+            genre: "Creative Writing",
+            prompt: "Describe a medieval battle scene. Write in a style inspired by Cormac McCarthy: sparse, visceral prose, focusing on sensory details and avoiding complex sentences.",
+            explanation: "Moves beyond generic descriptions by specifying a particular author's well-defined and unique literary style."
+          }
+        ]
+      },
+      {
+        title: "Template and Placeholder Injection",
+        description: "Create a reusable prompt 'template' with placeholders that can be programmatically filled in. This is a cornerstone technique for building scalable, AI-powered applications.",
+        concept: "Instead of writing a new prompt for every task, you design a master prompt with variables (e.g., `{{customer_name}}`, `{{product_details}}`). Your application then injects the specific data into these placeholders before sending the prompt to the AI.",
+        examples: [
+          {
+            genre: "Customer Support Automation",
+            prompt: "You are a helpful customer support agent. A customer named {{customer_name}} is having an issue with their product, {{product_name}}. The issue is: '{{issue_description}}'. Write a helpful and empathetic response that acknowledges their problem and suggests the standard solution: {{solution_steps}}.",
+            explanation: "Creates a scalable template for generating personalized support emails by simply filling in the variables for each case."
+          },
+          {
+            genre: "Content Creation",
+            prompt: "Write a short, engaging product description for the following item. Use a friendly and enthusiastic tone.\n\nProduct Name: {{product_name}}\nCategory: {{category}}\nKey Features: {{key_features_list}}",
+            explanation: "Allows a developer to automatically generate product descriptions for an entire e-commerce catalog by looping through their database and filling in the template."
+          }
+        ]
+      },
+      {
+        title: "Parameter & Syntax Control",
+        description: "This is like using advanced search operators. Many models respond to specific, non-prose syntax to control the output format, style, or other parameters precisely.",
+        concept: "AI models, especially for image generation, are often tuned to recognize specific keywords or formatted flags (parameters) that are passed directly to the generation engine. For text, using quotes or specific formatting can constrain the output.",
+        examples: [
+          {
+            genre: "Image Generation",
+            prompt: "A minimalist logo for a coffee shop called 'The Grind', vector art, clean lines --ar 1:1 --no text",
+            explanation: "`--ar 1:1` forces a square aspect ratio. `--no text` is a negative prompt to prevent the model from adding unwanted words."
+          },
+          {
+            genre: "Technical Writing",
+            prompt: "Explain the JavaScript event loop. Use the exact phrase \"call stack\" at least three times. Do not mention 'asynchronous'.",
+            explanation: "Using quotes `\"\"` enforces the inclusion of a specific phrase, while the negative constraint guides the explanation's focus."
+          },
+          {
+            genre: "Image Generation",
+            prompt: "photo of a 1960s astronaut walking through a field of surreal, glowing flowers --style film-grain --chaos 20",
+            explanation: "Uses model-specific parameters like `--style` and `--chaos` (in Midjourney) to control artistic direction beyond the prose description."
+          }
+        ]
+      },
+       {
+        title: "Term Weighting",
+        description: "A technique to tell the AI that some words in your prompt are more important than others. While syntax varies between models, the concept can be applied universally.",
+        concept: "Some image models use syntax like `(word:1.5)` or `(word)` to increase a term's weight and `[word]` to decrease it. For text models, you can achieve a similar effect through repetition or explicit instruction.",
+        examples: [
+          {
+            genre: "Image Generation",
+            prompt: "A fantasy landscape with a (giant glowing mushroom:1.5) and a small river. The focus is on the mushroom.",
+            explanation: "The `(word:1.5)` syntax (used in some models) tells the AI to make the mushroom the most dominant and important feature."
+          },
+          {
+            genre: "Marketing",
+            prompt: "Write a product description for a new coffee blend. Emphasize that it is 'ethically sourced'. The main selling point is that it is ethically sourced. Mention this fact clearly.",
+            explanation: "For text models, simple repetition and direct instruction effectively 'weight' the importance of a concept."
+          },
+          {
+            genre: "Legal",
+            prompt: "Analyze the provided contract clause. Pay special attention to the 'indemnification' section. The most critical part of your analysis should be the indemnification clause.",
+            explanation: "Directly instructs the AI where to focus its analytical efforts, ensuring the most critical part of the task is handled thoroughly."
+          }
+        ]
+      },
+      {
+        title: "The 'Step-Back' Technique",
+        description: "To get a better answer for a specific question, instruct the AI to first 'step back' and state the general principles or concepts that underlie the question. This helps establish a solid foundation of context.",
+        concept: "This technique prevents the AI from giving a narrow, superficial answer. By forcing it to first define the broader topic, you ensure the subsequent specific answer is well-grounded and comprehensive.",
+        examples: [
+          {
+            genre: "Education",
+            prompt: "I need to understand a 'foreign key' in a database. First, take a step back and explain the basic concept of a relational database and what 'tables' and 'primary keys' are. Then, explain what a foreign key is and how it relates to them.",
+            explanation: "Builds knowledge from the ground up, making the final explanation much easier to understand."
+          },
+          {
+            genre: "Technical Troubleshooting",
+            prompt: "My React component is re-rendering too often. Before suggesting a solution, first explain the core reasons why a React component might re-render in the first place. Then, provide common solutions like `memo` or `useCallback` and explain when to use them.",
+            explanation: "Focuses on teaching the 'why', not just the 'what', leading to deeper understanding."
+          },
+          {
+            genre: "Strategic Thinking",
+            prompt: "Should our company enter the market in Southeast Asia? First, step back and list the key economic and cultural factors that businesses must consider when expanding into that region in general. Then, analyze our specific business against that framework.",
+            explanation: "Establishes a robust analytical framework before diving into a specific recommendation, leading to a more reasoned conclusion."
+          }
+        ]
+      },
+      {
+        title: "The 'Zen' Prompt",
+        description: "Unconventional, conversational phrases that can sometimes improve the quality and thoughtfulness of the AI's response. Their effectiveness is debated, but they are a fascinating tool.",
+        concept: "These phrases may act as a meta-instruction that encourages the model to access more nuanced, detailed, or carefully reasoned parts of its training data. Phrases like 'take a deep breath' might prime the model for a more considered output, similar to how it has seen those phrases used in human writing.",
+        examples: [
+          {
+            genre: "Strategy",
+            prompt: "Take a deep breath and think through this carefully. What are the second and third-order consequences of a company switching to a 4-day work week?",
+            explanation: "This simple addition can encourage a more thorough and less superficial analysis."
+          },
+           {
+            genre: "Creative Writing",
+            prompt: "This is very important to get right. Write a poignant and emotional final paragraph for a story where a character says goodbye to their childhood home forever.",
+            explanation: "Adding a sense of importance can nudge the model towards a more powerful and less generic emotional tone."
+          },
+          {
+            genre: "Coding",
+            prompt: "You are a world-class programmer. Think carefully and write the most efficient and elegant Python solution possible for finding the median of two sorted arrays.",
+            explanation: "Combining a strong persona with a 'Zen' instruction can encourage the model to aim for a higher standard of quality in its output."
+          }
+        ]
+      }
+    ];
+    const CopyIcon = () => (
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+    );
+
+    const CheckIcon = () => (
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    );
+
+    const PromptCard = ({ prompt }) => {
+      const [copied, setCopied] = React.useState(false);
+      const handleCopy = () => {
+        navigator.clipboard.writeText(prompt.text);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      };
+
+      return (
+        <div className="bg-neutral-900 border border-neutral-800 p-6 rounded-lg flex flex-col h-full">
+          <div className="flex-grow">
+            <h3 className="text-xl font-bold text-white">{prompt.title}</h3>
+            <p className="text-neutral-400 mt-3 text-base leading-relaxed">{prompt.text}</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <span className="inline-block bg-neutral-800 text-neutral-300 text-xs font-medium px-3 py-1 rounded-full">{prompt.category}</span>
+              {prompt.tags.map((tag, index) => (
+                <span key={index} className="inline-block bg-neutral-950 border border-neutral-800 text-neutral-400 text-xs font-medium px-3 py-1 rounded-full">{tag}</span>
+              ))}
+            </div>
+          </div>
+          <button
+            onClick={handleCopy}
+            className="mt-6 w-full bg-white text-black px-4 py-3 rounded-md font-semibold hover:bg-neutral-200 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-white flex items-center justify-center gap-2"
+          >
+            {copied ? <CheckIcon /> : <CopyIcon />}
+            <span>{copied ? 'Copied!' : 'Copy Prompt'}</span>
+          </button>
+        </div>
+      );
+    };
+
+    const TechniqueCard = ({ technique }) => (
+      <div className="bg-neutral-900 border border-neutral-800 p-6 sm:p-8 rounded-lg">
+          <h3 className="text-2xl font-bold text-white">{technique.title}</h3>
+          <div className="mt-4 max-w-none text-neutral-300 text-lg leading-relaxed prose prose-invert prose-neutral">
+            <p>{technique.description}</p>
+            <p className="text-sm text-neutral-500 italic">{technique.concept}</p>
+          </div>
+          <div className="mt-6 border-t border-neutral-800 pt-6">
+            <h4 className="text-lg font-semibold text-white mb-4">Examples</h4>
+            <div className="space-y-6">
+              {technique.examples.map((example, index) => (
+                <div key={index}>
+                  <span className="inline-block bg-neutral-800 text-neutral-300 text-sm font-medium px-3 py-1 rounded-full mb-2">{example.genre}</span>
+                  <pre className="p-4 bg-black rounded-md"><code>{example.prompt}</code></pre>
+                  <p className="mt-2 text-sm text-neutral-400 italic">{example.explanation}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+      </div>
+    );
+
+    const App = () => {
+      const [searchTerm, setSearchTerm] = React.useState("");
+      const [categoryFilter, setCategoryFilter] = React.useState("All");
+      const [activeTab, setActiveTab] = React.useState('prompts');
+
+      const categories = ["All", ...new Set(prompts.map((prompt) => prompt.category))];
+      
+      const filteredPrompts = React.useMemo(() => {
+        return prompts.filter(
+          (prompt) =>
+            (categoryFilter === "All" || prompt.category === categoryFilter) &&
+            (prompt.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+              prompt.text.toLowerCase().includes(searchTerm.toLowerCase()) ||
+              prompt.tags.some((tag) => tag.toLowerCase().includes(searchTerm.toLowerCase())))
+        );
+      }, [searchTerm, categoryFilter]);
+
+      return (
+        <div className="min-h-screen bg-black text-white font-sans">
+          <header className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 border-b border-neutral-900">
+            <div className="max-w-4xl mx-auto text-center">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tighter">
+                The Prompt Index
+              </h1>
+              <p className="text-neutral-400 mt-4 max-w-2xl mx-auto text-lg">
+                A curated library of engineering prompts and advanced techniques. Go beyond basic questions and learn to build with AI.
+              </p>
+            </div>
+          </header>
+
+          <main className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-center mb-8 sm:mb-12 border-b border-neutral-800">
+              <button 
+                onClick={() => setActiveTab('prompts')}
+                className={`px-6 py-3 text-lg font-medium transition-colors ${activeTab === 'prompts' ? 'text-white border-b-2 border-white' : 'text-neutral-500 hover:text-white'}`}
+              >
+                Prompts
+              </button>
+              <button 
+                onClick={() => setActiveTab('techniques')}
+                className={`px-6 py-3 text-lg font-medium transition-colors ${activeTab === 'techniques' ? 'text-white border-b-2 border-white' : 'text-neutral-500 hover:text-white'}`}
+              >
+                Pro Techniques
+              </button>
+            </div>
+
+            {activeTab === 'prompts' && (
+              <div>
+                <div className="mb-8">
+                  <input
+                    type="text"
+                    placeholder="Search prompts by title, content, or tag..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="w-full bg-neutral-900 border border-neutral-800 text-white rounded-lg px-5 py-4 text-base focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent"
+                  />
+                </div>
+                <div className="flex flex-wrap gap-3 mb-8">
+                    {categories.map((category) => (
+                      <button
+                        key={category}
+                        onClick={() => setCategoryFilter(category)}
+                        className={`px-5 py-2 text-base font-medium rounded-md transition-colors ${categoryFilter === category ? 'bg-white text-black' : 'bg-neutral-900 hover:bg-neutral-800 text-neutral-300 border border-neutral-800'}`}
+                      >
+                        {category}
+                      </button>
+                    ))}
+                </div>
+
+                <section>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {filteredPrompts.length > 0 ? filteredPrompts.map((prompt) => (
+                      <PromptCard key={prompt.id} prompt={prompt} />
+                    )) : <p className="text-neutral-400 col-span-full text-center py-12">No prompts match your search.</p>}
+                  </div>
+                </section>
+              </div>
+            )}
+            
+            {activeTab === 'techniques' && (
+              <section>
+                <div className="grid grid-cols-1 gap-8">
+                  {techniques.map((tip, index) => (
+                    <TechniqueCard key={index} technique={tip} />
+                  ))}
+                </div>
+              </section>
+            )}
+
+          </main>
+
+          <footer className="py-8 px-4 sm:px-6 lg:px-8 text-center border-t border-neutral-900 mt-12">
+            <p className="text-neutral-500">
+              © {new Date().getFullYear()} The Prompt Index. Built for engineers.
+            </p>
+          </footer>
+        </div>
+      );
+    };
+
+    ReactDOM.render(<App />, document.getElementById("root"));
+  </script>
+</body>
+</html>

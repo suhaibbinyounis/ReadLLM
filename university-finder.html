@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Finder - Modern & Minimalist University Search</title>
+    <meta name="description" content="A modern and minimalist tool to find, compare, and explore universities worldwide. Use preset filters and a clean interface to easily access official university websites.">
+    <meta name="keywords" content="university finder, college search, modern university directory, minimalist college search, study abroad, higher education, university list">
+    <meta name="author" content="University Finder">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://universityfinder.com/">
+    <meta property="og:title" content="University Finder - Modern & Minimalist University Search">
+    <meta property="og:description" content="A modern and minimalist tool to find, compare, and explore universities worldwide.">
+    <meta property="og:image" content="https://placehold.co/1200x630/f0f2f5/111827?text=University+Finder">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://universityfinder.com/">
+    <meta property="twitter:title" content="University Finder - Modern & Minimalist University Search">
+    <meta property="twitter:description" content="A modern and minimalist tool to find, compare, and explore universities worldwide.">
+    <meta property="twitter:image" content="https://placehold.co/1200x630/f0f2f5/111827?text=University+Finder">
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+    
+    <style>
+        :root {
+            --bg-main: #f8f9fa;
+            --bg-secondary: #ffffff;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --border-color: #e5e7eb;
+            --primary-accent: #2563eb;
+            --primary-accent-hover: #1d4ed8;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --radius: 0.75rem;
+            --transition: all 0.2s ease-in-out;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bg-secondary);
+            padding: 2.5rem 0; /* Reduced padding */
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .header h1 {
+            font-size: clamp(2rem, 4vw, 2.5rem); /* Reduced font size */
+            font-weight: 700;
+            margin-bottom: 0.75rem; /* Slightly reduced margin */
+            letter-spacing: -0.025em;
+        }
+
+        .header p {
+            font-size: 1rem; /* Reduced font size */
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Search & Filter Section */
+        .search-section {
+            background: var(--bg-secondary);
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            background: rgba(255,255,255,0.85);
+        }
+
+        .search-controls-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .top-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .search-box {
+            position: relative;
+            flex-grow: 1;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.85rem 1rem 0.85rem 3rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            background: var(--bg-main);
+            transition: var(--transition);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-accent);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+        }
+
+        .preset-filters {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border-radius: 999px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover {
+            background: var(--bg-main);
+            border-color: #d1d5db;
+        }
+
+        .filter-btn.active {
+            background: var(--primary-accent);
+            color: white;
+            border-color: var(--primary-accent);
+        }
+
+        /* Results */
+        .results-section {
+            padding: 3rem 0;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .results-count {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .sort-select {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            background: var(--bg-secondary);
+            font-size: 1rem;
+        }
+
+        .universities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            min-height: 500px;
+        }
+
+        .university-card {
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .university-card a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        
+        .university-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: #dbeafe;
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .logo-container {
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+            background-color: var(--bg-main);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .university-logo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-placeholder {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-accent);
+        }
+
+        .card-info {
+            flex-grow: 1;
+        }
+
+        .university-name {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .university-location {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+        
+        .card-footer {
+            margin-top: auto;
+            padding-top: 1rem;
+        }
+
+        .university-website {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--primary-accent);
+            transition: var(--transition);
+        }
+        
+        .university-website:hover {
+            color: var(--primary-accent-hover);
+        }
+        
+        /* Pagination */
+        .pagination-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .pagination-btn {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            font-weight: 500;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            transition: var(--transition);
+        }
+        .pagination-btn:hover:not(:disabled) {
+            background-color: var(--bg-main);
+        }
+        .pagination-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .pagination-btn.active {
+            background-color: var(--primary-accent);
+            border-color: var(--primary-accent);
+            color: white;
+        }
+        
+        .page-info {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            padding: 0 1rem;
+        }
+
+        /* Status States */
+        .status-container {
+             text-align: center;
+             padding: 4rem 0;
+             color: var(--text-secondary);
+        }
+
+        .spinner {
+            width: 32px;
+            height: 32px;
+            border: 4px solid var(--border-color);
+            border-top-color: var(--primary-accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .status-container h3 {
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .top-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            .header {
+                padding: 2rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1>University Finder</h1>
+                <p>Explore higher education institutions from around the globe. Use our simple, fast search to find your perfect university.</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="search-section">
+        <div class="container">
+            <div class="search-controls-wrapper">
+                <div class="top-controls">
+                    <div class="search-box">
+                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                        </svg>
+                        <input type="text" class="search-input" placeholder="Search by university name..." id="searchInput">
+                    </div>
+                     <select class="sort-select" id="sortSelect">
+                        <option value="name_asc">Sort by Name (A-Z)</option>
+                        <option value="name_desc">Sort by Name (Z-A)</option>
+                        <option value="country_asc">Sort by Country (A-Z)</option>
+                        <option value="country_desc">Sort by Country (Z-A)</option>
+                    </select>
+                </div>
+                <div class="preset-filters" id="presetFilters">
+                     <button class="filter-btn" data-country="">All</button>
+                     <button class="filter-btn active" data-country="United States">USA</button>
+                     <button class="filter-btn" data-country="United Kingdom">UK</button>
+                     <button class="filter-btn" data-country="Canada">Canada</button>
+                     <button class="filter-btn" data-country="Australia">Australia</button>
+                     <button class="filter-btn" data-country="Germany">Germany</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="results-section">
+        <div class="container">
+            <div class="results-header">
+                <div class="results-count" id="resultsCount">Loading universities...</div>
+            </div>
+            <div class="status-container" id="loadingState">
+                <div class="spinner"></div>
+                <p>Fetching universities...</p>
+            </div>
+            <div class="universities-grid" id="universitiesGrid"></div>
+            <div class="status-container" id="emptyState" style="display: none;">
+                <h3>No universities found</h3>
+                <p>Try adjusting your search or filter criteria.</p>
+            </div>
+            <div class="pagination-controls" id="paginationControls"></div>
+        </div>
+    </main>
+
+    <script>
+        // --- DOM Elements ---
+        const searchInput = document.getElementById('searchInput');
+        const sortSelect = document.getElementById('sortSelect');
+        const universitiesGrid = document.getElementById('universitiesGrid');
+        const resultsCount = document.getElementById('resultsCount');
+        const loadingState = document.getElementById('loadingState');
+        const emptyState = document.getElementById('emptyState');
+        const presetFiltersContainer = document.getElementById('presetFilters');
+        const paginationControls = document.getElementById('paginationControls');
+
+        // --- State ---
+        let allUniversities = [];
+        let filteredUniversities = [];
+        let activeCountryFilter = 'United States'; // Default to USA
+        let currentPage = 1;
+        const itemsPerPage = 48;
+
+        // --- API ---
+        const API_URL = 'https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json';
+
+        /**
+         * Fetches university data from the API.
+         */
+        async function fetchUniversities() {
+            try {
+                const response = await fetch(API_URL);
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                const data = await response.json();
+                
+                const uniqueUniversities = new Map();
+                data.forEach(uni => {
+                    if (uni.name) {
+                        const key = `${uni.name}|${uni.country}`;
+                        if (!uniqueUniversities.has(key)) {
+                            uniqueUniversities.set(key, {
+                                name: uni.name,
+                                country: uni.country,
+                                website: uni.web_pages[0] || '#',
+                                domain: uni.domains[0] || null
+                            });
+                        }
+                    }
+                });
+                allUniversities = Array.from(uniqueUniversities.values());
+
+                return true;
+            } catch (error) {
+                console.error("Failed to fetch universities:", error);
+                loadingState.innerHTML = '<p>Could not load university data. Please try again later.</p>';
+                return false;
+            }
+        }
+        
+        /**
+         * Renders the cards for the current page.
+         */
+        function renderPage() {
+            loadingState.style.display = 'none';
+            universitiesGrid.innerHTML = '';
+            
+            resultsCount.textContent = `${filteredUniversities.length.toLocaleString()} universities found`;
+
+            if (filteredUniversities.length === 0) {
+                emptyState.style.display = 'block';
+                universitiesGrid.style.display = 'none';
+                paginationControls.style.display = 'none';
+                return;
+            }
+            
+            emptyState.style.display = 'none';
+            universitiesGrid.style.display = 'grid';
+            paginationControls.style.display = 'flex';
+
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const pageItems = filteredUniversities.slice(startIndex, endIndex);
+
+            const fragment = document.createDocumentFragment();
+            pageItems.forEach(uni => {
+                fragment.appendChild(createUniversityCard(uni));
+            });
+            universitiesGrid.appendChild(fragment);
+
+            renderPagination();
+        }
+        
+        /**
+         * Creates an HTML card element for a university.
+         */
+        function createUniversityCard(uni) {
+            const card = document.createElement('div');
+            card.className = 'university-card';
+            
+            const initial = uni.name.charAt(0).toUpperCase();
+            const logoUrl = uni.domain ? `https://logo.clearbit.com/${uni.domain}` : '';
+
+            card.innerHTML = `
+                <a href="${uni.website}" target="_blank" rel="noopener noreferrer">
+                    <div class="card-header">
+                        <div class="logo-container">
+                            ${uni.domain ? `<img src="${logoUrl}" alt="${uni.name} Logo" class="university-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">` : ''}
+                            <div class="logo-placeholder" style="display: ${uni.domain ? 'none' : 'flex'};">${initial}</div>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="university-name">${uni.name}</h3>
+                            <p class="university-location">${uni.country}</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="university-website">
+                            <span>Visit Website</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" /></svg>
+                        </div>
+                    </div>
+                </a>`;
+            
+            const img = card.querySelector('.university-logo');
+            if(img) {
+                img.onerror = () => {
+                    img.style.display = 'none';
+                    const placeholder = card.querySelector('.logo-placeholder');
+                    if (placeholder) placeholder.style.display = 'flex';
+                };
+            }
+            return card;
+        }
+
+        /**
+         * Filters and sorts the university list, then triggers rendering.
+         */
+        function applyFiltersAndSort() {
+            const searchTerm = searchInput.value.toLowerCase();
+            
+            filteredUniversities = allUniversities.filter(uni => {
+                const nameMatch = uni.name.toLowerCase().includes(searchTerm);
+                const countryMatch = !activeCountryFilter || uni.country === activeCountryFilter;
+                return nameMatch && countryMatch;
+            });
+            
+            const sortValue = sortSelect.value;
+            const [key, order] = sortValue.split('_');
+
+            filteredUniversities.sort((a, b) => {
+                let valA = a[key].toLowerCase();
+                let valB = b[key].toLowerCase();
+                if (valA < valB) return order === 'asc' ? -1 : 1;
+                if (valA > valB) return order === 'asc' ? 1 : -1;
+                return 0;
+            });
+            
+            currentPage = 1; // Reset to first page after any filter/sort change
+            renderPage();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        /**
+         * Renders the pagination controls.
+         */
+        function renderPagination() {
+            paginationControls.innerHTML = '';
+            const totalPages = Math.ceil(filteredUniversities.length / itemsPerPage);
+
+            if (totalPages <= 1) return;
+
+            // Previous Button
+            const prevButton = document.createElement('button');
+            prevButton.className = 'pagination-btn';
+            prevButton.textContent = 'Previous';
+            prevButton.disabled = currentPage === 1;
+            prevButton.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderPage();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+            paginationControls.appendChild(prevButton);
+            
+            // Page Info
+            const pageInfo = document.createElement('span');
+            pageInfo.className = 'page-info';
+            pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+            paginationControls.appendChild(pageInfo);
+
+            // Next Button
+            const nextButton = document.createElement('button');
+            nextButton.className = 'pagination-btn';
+            nextButton.textContent = 'Next';
+            nextButton.disabled = currentPage === totalPages;
+            nextButton.addEventListener('click', () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    renderPage();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+            paginationControls.appendChild(nextButton);
+        }
+
+        /**
+         * Sets up all the event listeners for the application.
+         */
+        function setupEventListeners() {
+            searchInput.addEventListener('input', debounce(applyFiltersAndSort, 300));
+            sortSelect.addEventListener('change', applyFiltersAndSort);
+            presetFiltersContainer.addEventListener('click', (e) => {
+                const target = e.target;
+                if (target.tagName !== 'BUTTON') return;
+
+                presetFiltersContainer.querySelector('.active').classList.remove('active');
+                target.classList.add('active');
+                
+                activeCountryFilter = target.dataset.country;
+                applyFiltersAndSort();
+            });
+        }
+        
+        /**
+         * Debounce function to limit the rate at which a function gets called.
+         */
+        function debounce(func, delay) {
+            let timeout;
+            return function(...args) {
+                const context = this;
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(context, args), delay);
+            };
+        }
+
+        /**
+         * Initializes the application.
+         */
+        async function init() {
+            setupEventListeners();
+            const success = await fetchUniversities();
+            if (success) {
+                applyFiltersAndSort();
+            }
+        }
+
+        // --- Start the App ---
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
